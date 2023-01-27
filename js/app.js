@@ -1,5 +1,6 @@
 const result = document.querySelector('.result')
 const form = document.querySelector('.formulario');
+<<<<<<< HEAD
 let historys = [];
 
 form.addEventListener('submit', search);
@@ -37,11 +38,46 @@ function viewApi(data) {
 
       card.classList.add('card', 'p-1')
       card.innerHTML = ` 
+=======
+let names;
+
+form.addEventListener('submit',search);
+
+function search(e){
+    e.preventDefault();
+    const characterName = document.querySelector('#characterName').value;
+    if(characterName === ''){
+        return;
+    }
+    names = characterName 
+    initApp()
+}
+
+function initApp(){
+    cargarApi()
+    function cargarApi(){
+        const url = `https://rickandmortyapi.com/api/character/?name=${names}`;
+        console.log(url);
+        form.reset();
+        clear();
+        fetch(url)
+            .then(res => res.json())
+            .then(data => viewApi(data.results))
+            .catch(err => console.log(err))
+    }
+    function viewApi(data){
+        data.forEach(({name,image})=>{
+            const card = document.createElement('div');
+
+            card.classList.add('card','col-3','m-1','p-1')
+            card.innerHTML= ` 
+>>>>>>> 5eb0d36 (.)
                 <img src="${image}">
                 <div class="card-body">
                     <p class="card-title">${name}</p>  
                 </div>
             `
+<<<<<<< HEAD
       result.appendChild(card)
    })
 }
@@ -96,3 +132,15 @@ function clear(params) {
       params.removeChild(params.firstChild);
    }
 }
+=======
+            result.appendChild(card)
+        })
+    }
+
+    function clear(){
+        while(result.firstChild){
+            result.removeChild(result.firstChild);
+        }
+    }
+}
+>>>>>>> 5eb0d36 (.)
