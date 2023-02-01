@@ -1,7 +1,6 @@
 const result = document.querySelector('.result')
 const form = document.querySelector('.formulario');
 let historys = [];
-
 form.addEventListener('submit', search);
 
 function search(e) {
