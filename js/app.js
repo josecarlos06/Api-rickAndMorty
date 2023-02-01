@@ -91,8 +91,6 @@ function getLocalStorage(){
    historys = JSON.parse(localStorage.getItem("api")) || [];
    renderList();
 }
-
-// function limpiar
 function clear(params) {
    while (params.firstChild) {
       params.removeChild(params.firstChild);
